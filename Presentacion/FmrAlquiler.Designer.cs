@@ -150,6 +150,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker2.TabIndex = 20;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // FechaR
             // 
@@ -167,6 +168,7 @@
             this.txtValorKm.Name = "txtValorKm";
             this.txtValorKm.Size = new System.Drawing.Size(100, 20);
             this.txtValorKm.TabIndex = 12;
+            this.txtValorKm.TextChanged += new System.EventHandler(this.txtValorKm_TextChanged);
             // 
             // Valor
             // 
@@ -253,6 +255,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
@@ -262,6 +265,7 @@
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscar
             // 
@@ -334,7 +338,7 @@
             // 
             this.btnActualizar.Location = new System.Drawing.Point(134, 13);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(60, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(61, 23);
             this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Text = "&Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -393,6 +397,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 31;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // fechaEn
             // 

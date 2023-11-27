@@ -26,7 +26,7 @@ namespace Entidades
         }
 
         public Alquiler( string idCliente, string placaVehiculo, DateTime fechaDeEntrega, 
-            DateTime fechaDeRecepcion, double kmEntrega, 
+            DateTime fechaDeRecepcion, double kmEntrega,
             double kmRecepcion, double kmRecorridos, double valorKm, double descuento, double total)
         {
            

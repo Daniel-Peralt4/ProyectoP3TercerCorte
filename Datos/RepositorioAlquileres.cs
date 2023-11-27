@@ -91,8 +91,7 @@ namespace Datos
             try
             {
                 string _sql = string.Format("INSERT INTO [Alquileres] ([IdCliente], [Placa], [Fecha_Recepcion],[KmRecepcion],[ValorKm],[Descuento]) VALUES ('{0}','{1}','{2}','{3}','{4}',{5})",
-                    obj.IdCliente, obj.PlacaVehiculo, obj.FechaDeRecepcion.Date.ToString("dd/M/yyyy"), obj.KmRecepcion, obj.ValorKm, obj.Descuento);
-
+                    obj.IdCliente, obj.PlacaVehiculo, obj.FechaDeRecepcion.Date.ToString("yyyy - MM - dd"), obj.KmRecepcion, obj.ValorKm, obj.Descuento);
                 var cmd = new SqlCommand(_sql, conexion);
                 AbrirConnexion();
                 int filas = cmd.ExecuteNonQuery();
@@ -139,7 +138,7 @@ namespace Datos
         }
         public List<Alquiler> TodosFiltro(string condicion)
         {
-            string _sql = string.Format("select * from Alquileres where Placa like '{0}%' or IdCliente like '{1}%'", condicion, condicion);
+            string _sql = string.Format("select * from Alquileres where IdCliente like '{0}%' or Placa like '{1}%'", condicion, condicion);
             System.Data.DataTable tabla = new DataTable("Alquileres");
             SqlDataAdapter adapter = new SqlDataAdapter(_sql, conexion);
 

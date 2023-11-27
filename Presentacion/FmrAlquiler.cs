@@ -254,8 +254,31 @@ namespace Presentacion
                 Update(alquiler);
                 Actualizar(alquiler.PlacaVehiculo,(int)alquiler.KmEntrega);
             }
+        }
 
+        private void txtValorKm_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
