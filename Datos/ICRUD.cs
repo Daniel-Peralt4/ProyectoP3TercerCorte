@@ -5,7 +5,7 @@ using System.Text;
 using Entidades;
 namespace DatosDAO
 {
-    public interface ICRUD<T> //cliente, cuentas, veh
+    public interface ICRUD<T>
     {
         string Insertar(T obj);
         string Eliminar(T obj);
