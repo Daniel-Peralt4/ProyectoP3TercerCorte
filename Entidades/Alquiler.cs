@@ -11,8 +11,8 @@ namespace Entidades
         public int IdAlquiler { get; set; }
         public string IdCliente { get; set; }
         public string PlacaVehiculo { get; set; }
-        public DateTime FechaDeEntrega { get; set; } 
-        public DateTime FechaDeRecepcion { get; set; } = DateTime.Now.Date;
+        public DateTime FechaDeEntrega { get; set; } = DateTime.Now.Date;
+        public DateTime FechaDeRecepcion { get; set; }
         public double KmEntrega { get; set; }
         public double KmRecepcion { get; set; }
         public double KmRecorridos { get; set; }

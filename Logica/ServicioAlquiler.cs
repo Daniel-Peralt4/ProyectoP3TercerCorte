@@ -41,5 +41,9 @@ namespace Logica
         {
             return new RepositorioAlquileres().TodosFiltro(condicion);
         }
+        public List<Alquiler> FiltroPorFechaR(string condicion)
+        {
+            return new RepositorioAlquileres().FiltroPorFechaR(condicion);
+        }
     }
 }

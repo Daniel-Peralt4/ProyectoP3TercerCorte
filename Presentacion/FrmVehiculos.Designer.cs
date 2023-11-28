@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -43,11 +46,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.GrillaVehiculos = new System.Windows.Forms.DataGridView();
             this.txtCondicionVh = new System.Windows.Forms.TextBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.GrillaVehiculos = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -69,6 +69,36 @@
             this.groupBox1.Size = new System.Drawing.Size(508, 67);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(327, 28);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(246, 28);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(6, 28);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnSalir
             // 
@@ -212,15 +242,6 @@
             this.tabPage2.Text = "Listado General";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // GrillaVehiculos
-            // 
-            this.GrillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrillaVehiculos.Location = new System.Drawing.Point(219, 40);
-            this.GrillaVehiculos.Name = "GrillaVehiculos";
-            this.GrillaVehiculos.Size = new System.Drawing.Size(384, 267);
-            this.GrillaVehiculos.TabIndex = 0;
-            this.GrillaVehiculos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaVehiculos_CellDoubleClick_1);
-            // 
             // txtCondicionVh
             // 
             this.txtCondicionVh.Location = new System.Drawing.Point(324, 14);
@@ -229,35 +250,15 @@
             this.txtCondicionVh.TabIndex = 1;
             this.txtCondicionVh.TextChanged += new System.EventHandler(this.txtCondicionVh_TextChanged);
             // 
-            // btnNuevo
+            // GrillaVehiculos
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(6, 28);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(246, 28);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(327, 28);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 8;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.GrillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaVehiculos.Location = new System.Drawing.Point(219, 40);
+            this.GrillaVehiculos.Name = "GrillaVehiculos";
+            this.GrillaVehiculos.Size = new System.Drawing.Size(384, 267);
+            this.GrillaVehiculos.TabIndex = 0;
+            this.GrillaVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaVehiculos_CellContentClick);
+            this.GrillaVehiculos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaVehiculos_CellDoubleClick_1);
             // 
             // FrmVehiculos
             // 

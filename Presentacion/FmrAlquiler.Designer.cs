@@ -50,8 +50,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtCondicion = new System.Windows.Forms.TextBox();
-            this.grillaClientes = new System.Windows.Forms.DataGridView();
+            this.grillaAlquileres = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaAlquileres)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -289,8 +290,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.txtFecha);
             this.tabPage3.Controls.Add(this.txtCondicion);
-            this.tabPage3.Controls.Add(this.grillaClientes);
+            this.tabPage3.Controls.Add(this.grillaAlquileres);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(839, 370);
@@ -298,21 +300,31 @@
             this.tabPage3.Text = "Consulta general ";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(527, 19);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(153, 20);
+            this.txtFecha.TabIndex = 3;
+            this.txtFecha.TextChanged += new System.EventHandler(this.txtFecha_TextChanged);
+            // 
             // txtCondicion
             // 
             this.txtCondicion.Location = new System.Drawing.Point(344, 16);
             this.txtCondicion.Name = "txtCondicion";
             this.txtCondicion.Size = new System.Drawing.Size(110, 20);
             this.txtCondicion.TabIndex = 2;
+            this.txtCondicion.TextChanged += new System.EventHandler(this.txtCondicion_TextChanged);
             // 
-            // grillaClientes
+            // grillaAlquileres
             // 
-            this.grillaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaClientes.Location = new System.Drawing.Point(20, 58);
-            this.grillaClientes.Name = "grillaClientes";
-            this.grillaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grillaClientes.Size = new System.Drawing.Size(802, 263);
-            this.grillaClientes.TabIndex = 1;
+            this.grillaAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaAlquileres.Location = new System.Drawing.Point(20, 58);
+            this.grillaAlquileres.Name = "grillaAlquileres";
+            this.grillaAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grillaAlquileres.Size = new System.Drawing.Size(802, 263);
+            this.grillaAlquileres.TabIndex = 1;
+            this.grillaAlquileres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaClientes_CellContentClick);
             // 
             // tabPage2
             // 
@@ -426,7 +438,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaAlquileres)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -455,7 +467,7 @@
         private System.Windows.Forms.TextBox txtValorKm;
         private System.Windows.Forms.Label Valor;
         private System.Windows.Forms.TextBox txtCondicion;
-        private System.Windows.Forms.DataGridView grillaClientes;
+        private System.Windows.Forms.DataGridView grillaAlquileres;
         private System.Windows.Forms.Label FechaR;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TabPage tabPage2;
@@ -471,5 +483,6 @@
         private System.Windows.Forms.Label KmEn;
         private System.Windows.Forms.TextBox textAlquiler;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtFecha;
     }
 }

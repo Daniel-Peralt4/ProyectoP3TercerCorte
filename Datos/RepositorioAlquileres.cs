@@ -98,7 +98,7 @@ namespace Datos
                 CerrarConnexion();
                 if (filas == 1)
                 {
-                    return string.Format("se guardó correctamente el alquiler {0} asignado a {1} :", obj.IdAlquiler, obj.IdCliente);
+                    return string.Format("se guardó correctamente el alquiler asignado a {1} :", obj.IdAlquiler, obj.IdCliente);
                 }
                 return "Alquiler :" + obj.IdAlquiler + "No agregado";
             } catch (Exception e)
@@ -123,7 +123,7 @@ namespace Datos
                 alquiler.IdAlquiler = reader.GetInt32(0);
                 alquiler.IdCliente = reader.GetString(1);
                 alquiler.PlacaVehiculo = reader.GetString(2);
-                alquiler.FechaDeRecepcion = (reader.IsDBNull(4)) ? DateTime.Now : reader.GetDateTime(4);
+                alquiler.FechaDeRecepcion = reader.GetDateTime(4);
                 alquiler.KmRecepcion = (reader.IsDBNull(6)) ? 0 : double.Parse(reader.GetDecimal(6).ToString());
                 alquiler.ValorKm = double.Parse(reader.GetDecimal(8).ToString());
                 alquiler.Descuento = (reader.IsDBNull(9)) ? 0 : double.Parse(reader.GetDecimal(9).ToString());
@@ -153,23 +153,61 @@ namespace Datos
             }
             return lista;
         }
+        public List<Alquiler> FiltroPorFechaR(string condicion)
+        {
+            if (DateTime.TryParse(condicion, out DateTime fecha))
+            {
+                string _sql = $"SELECT * FROM Alquileres WHERE Fecha_Recepcion LIKE '{fecha.ToString("yyyy - MM - dd")}%'";
+                System.Data.DataTable tabla = new DataTable("Alquileres");
+                SqlDataAdapter adapter = new SqlDataAdapter(_sql, conexion);
+                adapter.Fill(tabla);
+                List<Alquiler> lista = new List<Alquiler>();
 
+                foreach (var fila in tabla.Rows)
+                {
+                    lista.Add(Map((DataRow)fila));
+                }
+                return lista;
+            }
+            else
+            {
+                return new List<Alquiler>();
+            }
+        }
         Alquiler Map(DataRow fila)
         {
             Alquiler alquiler = new Alquiler();
-            alquiler.IdAlquiler = (int)fila[0];
-            alquiler.IdCliente = (string)fila[1];
-            alquiler.PlacaVehiculo = (string)fila[2];
-            alquiler.FechaDeEntrega = (DateTime)fila[3];
-            alquiler.FechaDeRecepcion = (DateTime)fila[4];
-            alquiler.KmEntrega = (double)fila[5];
-            alquiler.KmRecorridos = (double)fila[6];
-            alquiler.KmRecepcion = (double)fila[7];
-            alquiler.ValorKm = (double)fila[8];
-            alquiler.Total = (double)fila[9];
-
+            alquiler.IdAlquiler = GetIntValue(fila, 0);
+            alquiler.IdCliente = GetStringValue(fila, 1);
+            alquiler.PlacaVehiculo = GetStringValue(fila, 2);
+            alquiler.FechaDeEntrega = GetDateTimeValue(fila, 3);
+            alquiler.FechaDeRecepcion = GetDateTimeValue(fila, 4);
+            alquiler.KmEntrega = GetDoubleValue(fila, 5);
+            alquiler.KmRecorridos = GetDoubleValue(fila, 6);
+            alquiler.KmRecepcion = GetDoubleValue(fila, 7);
+            alquiler.ValorKm = GetDoubleValue(fila, 8);
+            alquiler.Total = GetDoubleValue(fila, 9);
 
             return alquiler;
+        }
+        int GetIntValue(DataRow fila, int indice)
+        {
+            return fila.IsNull(indice) ? 0 : Convert.ToInt32(fila[indice]);
+        }
+
+        string GetStringValue(DataRow fila, int indice)
+        {
+            return fila.IsNull(indice) ? string.Empty : fila[indice].ToString();
+        }
+
+        DateTime GetDateTimeValue(DataRow fila, int indice)
+        {
+            return fila.IsNull(indice) ? DateTime.MinValue : Convert.ToDateTime(fila[indice]);
+        }
+
+        double GetDoubleValue(DataRow fila, int indice)
+        {
+            return fila.IsNull(indice) ? 0.0 : Convert.ToDouble(fila[indice]);
         }
     }
 }

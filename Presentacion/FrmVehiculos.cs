@@ -178,5 +178,10 @@ namespace Presentacion
         {
             this.Dispose();
         }
+
+        private void GrillaVehiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

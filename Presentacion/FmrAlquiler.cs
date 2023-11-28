@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Datos;
 using Entidades;
 using Logica;
 
@@ -48,7 +50,7 @@ namespace Presentacion
 
         void CargarTodos()
         {
-            grillaClientes.DataSource = new ServicioAlquiler().Todos("");
+            grillaAlquileres.DataSource = new ServicioAlquiler().Todos("");
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Presentacion
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var alquiler = new Alquiler(txtIdCliente.Text, txtPlaca.Text, DateTime.Now, Vehiculo.KilometrajeActual, double.Parse(txtValorKm.Text))
+            var alquiler = new Alquiler(txtIdCliente.Text, txtPlaca.Text, dateTimePicker2.Value, Vehiculo.KilometrajeActual, double.Parse(txtValorKm.Text))
             {
                 Descuento = (Cliente.TipoCliente.Equals("Contrato  ")) ? 15 : 0,
             };
@@ -129,7 +131,6 @@ namespace Presentacion
 
             }
 
-
         }
         void ver(Entidades.Cliente cliente)
         {
@@ -140,8 +141,6 @@ namespace Presentacion
             }
             
         }
-
-
 
         private void listaClientes_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -161,7 +160,6 @@ namespace Presentacion
                 listaVehiculos.Select();
             }
         }
-
 
         void BuscarVehiculo(string id)
         {
@@ -280,5 +278,32 @@ namespace Presentacion
         {
             
         }
+
+        private void grillaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtCondicion_TextChanged(object sender, EventArgs e)
+        {
+            string condicion = txtCondicion.Text.Trim();
+            CargarGrillaAlquileres(condicion);
+        }
+        void CargarGrillaAlquileres(string condicion)
+        {
+            grillaAlquileres.DataSource = new ServicioAlquiler().TodosFiltro(condicion);
+
+        }
+        void CargarOtraGrilla(string condicion)
+        {
+            grillaAlquileres.DataSource = new ServicioAlquiler().FiltroPorFechaR(condicion);
+        }
+
+        private void txtFecha_TextChanged(object sender, EventArgs e)
+        {
+            string condicion = txtFecha.Text.Trim();
+            CargarOtraGrilla(condicion);
+        }
+
     }
 }
